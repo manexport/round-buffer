@@ -57,15 +57,14 @@ extern "C" {
 	
 #endif
 	ROUND_BUFFER_EXTERN void round_buffer_reset(rb_t hd);
-	ROUND_BUFFER_EXTERN rb_t round_buffer_init(const ullt size );
+	ROUND_BUFFER_EXTERN rb_t round_buffer_init(const ullt size);
 	ROUND_BUFFER_EXTERN void round_buffer_destroy(rb_t hd);
 	ROUND_BUFFER_EXTERN ullt round_buffer_read(rb_t hd, char* buf, long size);
 	ROUND_BUFFER_EXTERN ullt round_buffer_write(rb_t hd, const char* buf, long size);
-	ROUND_BUFFER_EXTERN int round_buffer_readblock(rb_t hd, char* buf, long size);
-	ROUND_BUFFER_EXTERN int round_buffer_writeblock(rb_t hd, const char* buf, long size);
-	ROUND_BUFFER_EXTERN ullt get_used_size(rb_t hd);
-	ROUND_BUFFER_EXTERN int get_shutdown(rb_t hd);
-	ROUND_BUFFER_EXTERN int set_shutdown(rb_t hd);
+	ROUND_BUFFER_EXTERN int  round_buffer_readblock(rb_t hd, char* buf, long size);
+	ROUND_BUFFER_EXTERN int  round_buffer_writeblock(rb_t hd, const char* buf, long size);
+	ROUND_BUFFER_EXTERN int  round_buffer_status(rb_t hd);
+	ROUND_BUFFER_EXTERN int  round_buffer_shutdown(rb_t hd);
 
 
 #ifdef __cplusplus

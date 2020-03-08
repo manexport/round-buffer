@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "pthread.h"
 #include "round_buffer.h"
 
+
 #define BUFFER_SIZE_LIMIT  (1024*1024*10)
 #define RB_TRUE            (1)
 #define RB_FALSE           (0)
@@ -125,17 +126,7 @@ static ullt get_write_pos(rb_t hd)
 	return irv;
 }
 
- ullt get_used_size(rb_t hd)
-{
-	ullt irv;
-	round_buffer* rb = (round_buffer *)hd;
-	_round_buffer_lock(hd);
-	irv = rb->buffer_write_pos - rb->buffer_read_pos;
-	_round_buffer_unlock(hd);
-	return irv;
-}
-
-ROUND_BUFFER_EXTERN int get_shutdown(rb_t hd)
+int round_buffer_status(rb_t hd)
 {
 	int ir = 0;
 	round_buffer* rb = (round_buffer *)hd;
@@ -145,7 +136,7 @@ ROUND_BUFFER_EXTERN int get_shutdown(rb_t hd)
 	return ir;
 }
 
-ROUND_BUFFER_EXTERN int set_shutdown(rb_t hd)
+int round_buffer_shutdown(rb_t hd)
 {
 	int ir = 0;
 	round_buffer* rb = (round_buffer *)hd;
